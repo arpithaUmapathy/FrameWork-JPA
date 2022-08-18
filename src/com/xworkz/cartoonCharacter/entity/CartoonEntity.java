@@ -33,9 +33,9 @@ import org.hibernate.annotations.GenericGenerator;
 //	        
 //	        @NamedQuery(name="total",query="select count(*) from CartoonEntity "),
 	        
-	        @NamedQuery(name="updateAuthor" ,query=" update CartoonEntity c set c.authorType=:at where c.name=:nm")
+	//        @NamedQuery(name="updateAuthor" ,query=" update CartoonEntity c set c.authorType=:at where c.name=:nm"),
 	        
-	        
+	        @NamedQuery(name="updateType", query = "update CartoonEntity c set c.authorType =:type where c.name = :name")
 	    }  
 	)  
 public class CartoonEntity extends ParentEntity{

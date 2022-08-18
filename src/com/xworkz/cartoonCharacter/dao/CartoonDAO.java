@@ -41,5 +41,7 @@ public interface CartoonDAO {
 	
 	void updateAuthorByName(String author, String name);
 	
+	void updateTypeByName(String name,String type);
+	
 }
 

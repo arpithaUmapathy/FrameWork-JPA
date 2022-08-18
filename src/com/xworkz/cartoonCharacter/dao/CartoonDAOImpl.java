@@ -221,6 +221,29 @@ public class CartoonDAOImpl implements CartoonDAO {
 		}
 		
 	}
+
+	@Override
+	public void updateTypeByName(String name, String type) {
+		EntityManager manager = null;
+		try{
+			manager = factory.createEntityManager();
+			EntityTransaction tx = manager.getTransaction();
+			tx.begin();
+			Query query = manager.createNamedQuery("updateType");
+			query.setParameter("type", type);
+			query.setParameter("name", name);
+			query.executeUpdate();
+			System.out.println("The Updated Values of type is:" + type );
+			tx.commit();
+		}
+		catch (PersistenceException p) {
+			p.printStackTrace();
+		}
+		finally {
+			manager.close();
+		
+	}
+	}
 }
 
 			

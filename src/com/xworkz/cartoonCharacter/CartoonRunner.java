@@ -70,7 +70,9 @@ public class CartoonRunner {
 		// System.out.println(dao.total());
 		 
 		 
-		 dao.updateAuthorByName("chandu","Doremon");
+		// dao.updateAuthorByName("chandu","Doremon");
+		
+		dao.updateTypeByName("Sharan","chandru");
 		
 	}
 
