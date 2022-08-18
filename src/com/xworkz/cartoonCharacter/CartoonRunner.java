@@ -67,7 +67,10 @@ public class CartoonRunner {
 //		System.out.println(row);
 		
 		// Integer inti =dao.total();
-		 System.out.println(dao.total());
+		// System.out.println(dao.total());
+		 
+		 
+		 dao.updateAuthorByName("chandu","Doremon");
 		
 	}
 

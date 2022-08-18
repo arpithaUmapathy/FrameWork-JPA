@@ -31,7 +31,11 @@ import org.hibernate.annotations.GenericGenerator;
 //	        
 //	        @NamedQuery(name = "findByMaxCreatedDate", query = "Select c from CartoonEntity where c.createdDate = (select MAX(createdDate)"),
 //	        
-	        @NamedQuery(name="total",query="select count(*) from CartoonEntity ")
+//	        @NamedQuery(name="total",query="select count(*) from CartoonEntity "),
+	        
+	        @NamedQuery(name="updateAuthor" ,query=" update CartoonEntity c set c.authorType=:at where c.name=:nm")
+	        
+	        
 	    }  
 	)  
 public class CartoonEntity extends ParentEntity{

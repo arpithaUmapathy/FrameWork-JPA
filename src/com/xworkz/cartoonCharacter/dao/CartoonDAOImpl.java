@@ -198,6 +198,29 @@ public class CartoonDAOImpl implements CartoonDAO {
 		}
 		return null;
 	}
+
+	@Override
+	public void updateAuthorByName(String author, String name) {
+		EntityManager manager = null;
+		try{
+			manager = factory.createEntityManager();
+			EntityTransaction tx = manager.getTransaction();
+			tx.begin();
+			Query query = manager.createNamedQuery("updateAuthor");
+			query.setParameter("at", author);
+			query.setParameter("nm", name);
+			query.executeUpdate();
+			System.out.println("The Updated Values of Author are:" + author );
+			tx.commit();
+		}
+		catch (PersistenceException p) {
+			p.printStackTrace();
+		}
+		finally {
+			manager.close();
+		}
+		
+	}
 }
 
 			

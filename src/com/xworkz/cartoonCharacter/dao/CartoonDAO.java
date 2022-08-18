@@ -37,5 +37,9 @@ public interface CartoonDAO {
 	
 	
 	Integer total();
+	
+	
+	void updateAuthorByName(String author, String name);
+	
 }
 
