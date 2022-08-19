@@ -12,8 +12,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
+@Entity
+@ToString(callSuper=true)
 @Table(name="cartooninfo")
 @NamedQueries(  
 	    {  
@@ -21,21 +24,38 @@ import org.hibernate.annotations.GenericGenerator;
 	        name = "findByName",  
 	        query = "select c from CartoonEntity c where c.name=:name"  
 	        ) ,
-//	        @NamedQuery(name = "findByNameAndGenderAndAuthor", query = "select c from CartoonEntity c where c.name=:nm and c.gender=:ge and c.authorType=:au"
-//	        		),
-//	        @NamedQuery(name="findAuthorByName", query="select c.authorType from CartoonEntity c where c.name=:name1 "),
-//	        
-//	        @NamedQuery(name="createdDateByAuthor", query="select c.createdDate from CartoonEntity c where c.authorType=:author"),
-//	        
-//	        @NamedQuery(name="findNameAndGenderByAuthor", query="select cartoon.name,cartoon.gender from CartoonEntity cartoon where cartoon.authorType = :gender"),
-//	        
-//	        @NamedQuery(name = "findByMaxCreatedDate", query = "Select c from CartoonEntity where c.createdDate = (select MAX(createdDate)"),
-//	        
-//	        @NamedQuery(name="total",query="select count(*) from CartoonEntity "),
+	        @NamedQuery(name = "findByNameAndGenderAndAuthor", query = "select c from CartoonEntity c where c.name=:nm and c.gender=:ge and c.authorType=:au"
+	        		),
+	        @NamedQuery(name="findAuthorByName", query="select c.authorType from CartoonEntity c where c.name=:name1 "),
 	        
-	//        @NamedQuery(name="updateAuthor" ,query=" update CartoonEntity c set c.authorType=:at where c.name=:nm"),
+	        @NamedQuery(name="createdDateByAuthor", query="select c.createdDate from CartoonEntity c where c.authorType=:author"),
 	        
-	        @NamedQuery(name="updateType", query = "update CartoonEntity c set c.authorType =:type where c.name = :name")
+            @NamedQuery(name="findNameAndGenderByAuthor", query="select cartoon.name,cartoon.gender from CartoonEntity cartoon where cartoon.authorType = :gender"),
+        
+            @NamedQuery(name = "findByMaxCreatedDate", query = "select max(createdDate),cartoon from CartoonEntity cartoon"),
+	        
+	        @NamedQuery(name="total",query="select count(*) from CartoonEntity "),
+	        
+	        @NamedQuery(name="updateAuthor" ,query=" update CartoonEntity c set c.authorType=:at where c.name=:nm"),
+	        
+	        @NamedQuery(name="updateType", query = "update CartoonEntity c set c.authorType =:type where c.name = :name"),
+	        
+	        @NamedQuery(name="deletebyName", query="delete from CartoonEntity c where c.name = :nme" ),
+       
+	        @NamedQuery(name="FindAll", query="Select c from CartoonEntity c"),
+       
+	        @NamedQuery(name="FindAllByAuthor", query="select cartoon from CartoonEntity cartoon where cartoon.authorType =:au"),
+       
+	        @NamedQuery(name="findAllByAuthorAndGender", query="select cartoon from CartoonEntity cartoon where cartoon.authorType=:au and cartoon.gender=:ge"),
+       
+	        @NamedQuery(name="findAllByName", query="select cartoon from CartoonEntity cartoon where cartoon.name=:nm "),
+       
+	        @NamedQuery(name="findAllAuthor", query="select cartoon.authorType from CartoonEntity cartoon "),
+       
+	        @NamedQuery(name="findAllNAndG", query="select cartoon.name,cartoon.gender from CartoonEntity cartoon"),
+	        
+	        @NamedQuery(name="findAllNameAndGenderAndAuthor",query="select cartoon.name,cartoon.gender,cartoon.author from CartoonEntity cartoon ")
+	    
 	    }  
 	)  
 public class CartoonEntity extends ParentEntity{
@@ -50,7 +70,7 @@ public class CartoonEntity extends ParentEntity{
 	@Column(name="gender")
 	private String gender;
 	@Column(name="authorType")
-	private String authorType;
+	private String author;
 
 	public CartoonEntity() {	
 	}
@@ -60,7 +80,7 @@ public class CartoonEntity extends ParentEntity{
 		//this.id = id;
 		this.name = name;
 		this.gender = gender;
-		this.authorType = authorType;
+		this.author = authorType;
 	}
 
 	public int getId() {
@@ -88,18 +108,14 @@ public class CartoonEntity extends ParentEntity{
 	}
 
 	public String getAuthorType() {
-		return authorType;
+		return author;
 	}
 
 	public void setAuthorType(String authorType) {
-		this.authorType = authorType;
+		this.author = authorType;
 	}
 
-	@Override
-	public String toString() {
-		return "CartoonEntity [id=" + id + ", name=" + name + ", gender=" + gender + ", authorType=" + authorType + "]";
-	}
-	
+
 	
 
 }

@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
+import lombok.ToString;
 
 
+@ToString(callSuper=true)
 @MappedSuperclass
 public class ParentEntity {
 	
