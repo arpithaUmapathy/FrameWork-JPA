@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean class="com.xworkz.footballs.Football">
+<constructor-arg name="brand" value ="rtyuiioo"></constructor-arg>
+<constructor-arg name="price" value ="200.00"></constructor-arg>
+</bean>
+
+<bean class ="java.lang.Integer">
+<constructor-arg name="value" value ="36"></constructor-arg>
+</bean>
+
+<bean class ="java.lang.String">
+<constructor-arg name ="value" value = "Arpita"> </constructor-arg>
+</bean>
+
+<bean class ="java.lang.Float">
+<constructor-arg name ="value" value = "487.99"> </constructor-arg>
+</bean>
+
+<bean class ="java.lang.Double">
+<constructor-arg name ="value" value = "600909.65"> </constructor-arg>
+</bean>
+
+<bean class ="java.lang.Short">
+<constructor-arg name ="value" value = "5"> </constructor-arg>
+</bean>
+
+
+
+
+
+
+
+
+
+<!-- <bean class = "java.lang.String"></bean> -->
+
+
+
+
+<!-- <bean class = "java.lang.Integer"></bean>
+
+
+<bean class = "java.lang.Double"></bean>
+<bean class = "java.lang.Character"></bean>
+<bean class = "java.lang.Boolean"></bean>
+<bean class = "java.lang.Float"></bean> -->
+ 
+</beans>
